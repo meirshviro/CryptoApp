@@ -1,5 +1,6 @@
 const express = require('express');
 const joiValidator = require('../middlewares/joi');
+const dbConnect = require('../middlewares/db-connect');
 const userValidators = require('../validators/usersValidators');
 const router = express.Router();
 
@@ -14,5 +15,7 @@ const addSymbol = async (req, res) => {
 router.get('/',welcomeUser);
 
 router.post('/addSymbol',joiValidator(userValidators),addSymbol)
+
+router.use('/mysql',dbConnect)
 
 module.exports = router;

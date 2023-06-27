@@ -8,4 +8,7 @@ const logGuest = (req, res, next) => {
     next();
 }
 
-module.exports = logAdmin;
+module.exports = {
+    logAdmin,
+    logGuest
+};
