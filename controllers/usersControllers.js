@@ -1,5 +1,9 @@
 const UserSymbol = require('../models/mysql/user-symbol');
 
+const welcome  = (req, res, next) => {
+    res.render('users/welcome')
+}
+
 const dashboard = async (req, res, next) => {
     try {
         const promises = [];
@@ -27,6 +31,7 @@ const addSymbol = async (req, res, next) => {
 }
 
 module.exports = {
+    welcome,
     dashboard,
     addSymbol
 }

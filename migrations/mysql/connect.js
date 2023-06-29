@@ -1,6 +1,6 @@
 const config = require('config')
 const mysql = require('mysql2');
-
+const util = require('util');
 const host = config.get('mysql.host')
 const port = config.get('mysql.port')
 const user = config.get('mysql.user')
@@ -10,16 +10,17 @@ const db = config.get('mysql.database')
 // Create connection
 const connection = mysql.createConnection({
     host: host,
+    port: port,
     user: user,
     password: password,
     database: db,
   });
 // Open connection
-function connect(){ 
-    connection.connect(function(err) {
+async function connect(){ 
+    await connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-  });
+    });
 }
 
   module.exports = { connect, connection};

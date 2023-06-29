@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const welcome = async (req, res) => {
-  res.status(200).send('welcome guest');
+    res.render('welcome')
+    //res.status(200).send('welcome guest');
 };
 
-router.get('/welcome', welcome);
+router.get('/', welcome);
 
 module.exports = router;

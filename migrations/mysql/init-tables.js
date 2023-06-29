@@ -11,10 +11,9 @@ connection.query = util.promisify(connection.query);
     try {
       await connection.query(`
         CREATE TABLE IF NOT EXISTS users (
-          id int auto_increment,
-          username varchar(255) not null,
-          password varchar(255) not null,
-          primary key (id)
+            id int auto_increment,
+            github_id varchar(255) not null,
+            primary key (id)
         )    
       `);
       console.log("created table users!");
